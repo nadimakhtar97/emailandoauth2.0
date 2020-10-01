@@ -1,0 +1,10 @@
+const passport = require('passport');
+
+// here parameter are passed to passport's google strategy
+// specifying scope,accessType,prompt etc.
+// This method is used while calling the '/authorize' api endpoint.
+exports.authenticate = passport.authenticate('google',{
+    scope:["profile","email","https://mail.google.com/"],accessType: 'offline', prompt: 'consent'
+});
+
+exports.getAccessAndRefreshToken= passport.authenticate('google');
